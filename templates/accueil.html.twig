@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <a href="{{ path('adverts_add') }}">Ajouter une annonce</a> <br>
+        <a href="{{ path('adverts_index') }}">Voir les annonces</a> <br>
+        <a href="{{ path('contact_index') }}">Me contacter</a>
+    </div>
+
+    <div class="container">
+        <h2>Derniers messages reçus</h2>
+        <table class="table table-striped table-dark">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NOM</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Message</th>
+            </tr>
+            </thead>
+            <tbody>
+{#            {% for contact in em %}#}
+{#            <tr>#}
+{#                <th scope="row">#{{ em.id }}</th>#}
+{#                <td>{{ em.firsname }}</td>#}
+{#                <td>{{ em.lastname }}</td>#}
+{#                <td>{{ em.message }}</td>#}
+{#            </tr>#}
+{#            {% endfor %}#}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

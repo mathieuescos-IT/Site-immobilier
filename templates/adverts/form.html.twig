@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <h2>Créer un article</h2>
+
+        <form action="{{ path('adverts_new') }}" method="post">
+
+        <input type="hidden" name="token" value="{{ csrf_token("form_advert") }}">
+
+        <div class="form-group">
+            <label for="">Titre</label>
+            <input type="text" class="form-control" name="title" placeholder="Entrez le titre...">
+        </div>
+
+        <div class="form-group">
+            <label for="">Description</label>
+            <textarea id="" cols="30" rows="10" class="form-control" name="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="">Location/Vente</label>
+            <select id="Type" name="type">
+                <option>Faites votre choix</option>
+                <option value="location">Location</option>
+                <option value="vente">Vente</option>
+            </select>
+            <div id="location">
+                <p>Prix de location :
+                    <input type="number" name="rent_price" />
+                </p>
+            </div>
+            <div id="vente">
+                <p>Prix de vente :
+                    <input type="number" name="sell_price" />
+                </p>
+            </div>
+        </div>
+
+    <button class="btn btn-primary float-right">Créer une annonce</button>
+
+    </form>
+{% endblock %}

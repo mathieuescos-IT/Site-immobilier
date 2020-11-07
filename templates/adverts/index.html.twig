@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Toutes les annonces{% endblock %}
+
+{% block body %}
+
+    <h2>Liste des annonces</h2>
+
+    <ul class="list-group">
+        {% for advert in adverts %}
+            <li class="list-group-item">
+                <p>
+                    <a href="{{ path('advert_show', {id: advert.id }) }}">
+                        <strong>{{ advert.title }}</strong>
+                    </a>
+                </p>
+                <p><small>{{ advert.description }}</small></p>
+            </li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

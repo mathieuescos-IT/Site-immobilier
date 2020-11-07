@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <a href="{{ path('adverts_index') }}">< retour</a>
+    <h1>{{ advert.title }}</h1>
+    {%if advert.type == 'vente' %}
+        <small>Prix de la vente : {{ advert.vente }} €</small>
+    {% else %}
+        <small>Prix de la location : {{ advert.location }} €</small>
+    {% endif %}
+    <hr>
+    <p>
+        {{ advert.description }}
+    </p>
+
+    <form action="{{ path('advert_delete', {id: advert.id}) }}" method="post">
+        <input type="hidden" name="token" value="{{ csrf_token("delete_advert") }}">
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="btn btn-danger btn-sm">Supprimer</button>
+    </form>
+
+
+{% endblock %}
